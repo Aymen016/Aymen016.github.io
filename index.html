@@ -213,12 +213,12 @@
   .proj::after{content:"";position:absolute;inset:0;border-radius:20px;opacity:0;transition:opacity .3s;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(245,184,78,.10),transparent 40%);pointer-events:none;}
   .proj:hover{border-color:var(--line-strong);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);}
   .proj:hover::after{opacity:1;}
-  .proj .p-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;transform:translateZ(35px);}
+  .proj .p-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;transform:translateZ(12px);}
   .proj .p-idx{font-family:var(--mono);font-size:12px;color:var(--muted-2);}
   .proj .p-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-soft);background:var(--gold-soft);border-radius:100px;padding:5px 11px;}
-  .proj h3{font-family:var(--display);font-weight:600;font-size:1.5rem;margin-bottom:12px;letter-spacing:-.01em;transform:translateZ(28px);}
-  .proj p{color:var(--muted);font-size:.97rem;margin-bottom:22px;transform:translateZ(18px);}
-  .proj .p-foot{display:flex;justify-content:space-between;align-items:center;transform:translateZ(24px);}
+  .proj h3{font-family:var(--display);font-weight:600;font-size:1.5rem;margin-bottom:12px;letter-spacing:-.01em;transform:translateZ(9px);}
+  .proj p{color:var(--muted);font-size:.97rem;margin-bottom:22px;transform:translateZ(5px);}
+  .proj .p-foot{display:flex;justify-content:space-between;align-items:center;transform:translateZ(8px);}
   .proj .p-stack{display:flex;gap:7px;flex-wrap:wrap;}
   .proj .p-stack em{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:4px 8px;}
   .proj .p-link{font-family:var(--mono);font-size:12.5px;color:var(--gold);display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
@@ -235,6 +235,7 @@
   .contact h2 a:hover{opacity:.75;}
   .contact .sub{color:var(--muted);max-width:46ch;margin:0 auto 40px;font-size:1.06rem;}
   .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .contact-email{margin-top:24px;font-size:13px;color:var(--muted-2);letter-spacing:.03em;}
 
   footer{border-top:1px solid var(--line);padding:34px 0;}
   .foot-in{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:var(--muted-2);}
@@ -274,12 +275,11 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="wrap nav-in">
-    <a href="#top" class="logo"><span class="dot"></span>AYMEN_BAIG</a>
+    <a href="#top" class="logo"><span class="dot"></span>aymen_016</a>
     <div class="nav-links" id="navLinks">
-      <a href="#about"><span>01</span>About</a>
-      <a href="#stack"><span>02</span>Stack</a>
-      <a href="#work"><span>03</span>Work</a>
-      <a href="#contact"><span>04</span>Contact</a>
+      <a href="#about">About</a>
+      <a href="#stack">Stack</a>
+      <a href="#work">Work</a>
     </div>
     <a href="#contact" class="nav-cta">Let's talk →</a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -307,7 +307,7 @@
         </div>
         <div class="hero-socials">
           <a href="https://github.com/Aymen016" target="_blank" rel="noopener">↗ GitHub</a>
-          <a href="https://www.linkedin.com/in/aymen016" target="_blank" rel="noopener">↗ LinkedIn</a>
+          <a href="https://www.linkedin.com/in/aymen-baig-700a06284/" target="_blank" rel="noopener">↗ LinkedIn</a>
           <a href="https://www.hackerrank.com/profile/aymen_b" target="_blank" rel="noopener">↗ HackerRank</a>
           <a href="mailto:ayemenbaig26@gmail.com">↗ Email</a>
         </div>
@@ -327,8 +327,8 @@
 <!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Python</span><span>TensorFlow</span><span>Flask</span><span>FastAPI</span><span>OpenCV</span><span>Pinecone</span><span>Scikit-learn</span><span>Power BI</span><span>MongoDB</span><span>MySQL</span>
-    <span>Python</span><span>TensorFlow</span><span>Flask</span><span>FastAPI</span><span>OpenCV</span><span>Pinecone</span><span>Scikit-learn</span><span>Power BI</span><span>MongoDB</span><span>MySQL</span>
+    <span>Python</span><span>TensorFlow</span><span>Flask</span><span>FastAPI</span><span>OpenCV</span><span>Scikit-learn</span><span>Power BI</span><span>MongoDB</span><span>MySQL</span>
+    <span>Python</span><span>TensorFlow</span><span>Flask</span><span>FastAPI</span><span>OpenCV</span><span>Scikit-learn</span><span>Power BI</span><span>MongoDB</span><span>MySQL</span>
   </div>
 </div>
 
@@ -341,14 +341,14 @@
         <h2 style="font-family:var(--display);font-weight:600;font-size:clamp(2rem,4.5vw,3.1rem);letter-spacing:-.02em;line-height:1.05;margin:16px 0 24px;">Complete solutions, from model to interface.</h2>
         <p>I'm a software engineer who's happiest at the intersection of <strong>machine learning</strong>, <strong>full-stack development</strong>, and <strong>data</strong>. Whether it's a real-time computer-vision model, a semantic-search chatbot, or a clean Flask backend, I like owning the whole build.</p>
         <p>My work ranges from an e-learning platform for the <strong>deaf community</strong> to medical AI assistants and interactive analytics dashboards — projects where the engineering has to actually serve someone.</p>
-        <p>Right now I'm deepening my work in <strong>LLM prompt engineering</strong>, CI/CD, and real-time APIs.</p>
+        <p>Right now I'm building <strong>data pipelines</strong> — orchestrating workflows with <strong>Apache Airflow</strong>, keeping databases in sync, and turning the results into dashboards people can actually use.</p>
         <div class="now-learning">
           <h4>Currently exploring</h4>
           <ul>
-            <li>Advanced LLM-based prompt engineering</li>
-            <li>CI/CD pipelines with GitHub Actions</li>
-            <li>Secure backend development</li>
-            <li>Real-time APIs &amp; WebSocket integrations</li>
+            <li>Orchestrating workflows with Apache Airflow</li>
+            <li>Synchronizing data across databases</li>
+            <li>Building interactive dashboards</li>
+            <li>ETL pipeline design &amp; automation</li>
           </ul>
         </div>
       </div>
@@ -356,8 +356,8 @@
         <div class="stat-grid">
           <div class="stat"><div class="num">43</div><div class="lbl">Public repositories</div></div>
           <div class="stat"><div class="num">8+</div><div class="lbl">Flagship projects</div></div>
-          <div class="stat"><div class="num">5</div><div class="lbl">Core languages</div></div>
-          <div class="stat"><div class="num">AI</div><div class="lbl">/ ML focus</div></div>
+          <div class="stat"><div class="num">2+</div><div class="lbl">Years coding</div></div>
+          <div class="stat"><div class="num">Python</div><div class="lbl">Core language</div></div>
         </div>
       </div>
     </div>
@@ -375,7 +375,7 @@
     <div class="stack-grid">
       <div class="stack-card reveal">
         <div class="cat"><span class="ico">🧠</span>AI / Machine Learning</div>
-        <div class="chips"><span class="chip">TensorFlow</span><span class="chip">Scikit-learn</span><span class="chip">OpenCV</span><span class="chip">Pinecone</span></div>
+        <div class="chips"><span class="chip">TensorFlow</span><span class="chip">Scikit-learn</span><span class="chip">OpenCV</span></div>
       </div>
       <div class="stack-card reveal">
         <div class="cat"><span class="ico">⚙️</span>Languages &amp; Frameworks</div>
@@ -494,10 +494,14 @@
     <h2>Let's build<br><a href="mailto:ayemenbaig26@gmail.com">something smart.</a></h2>
     <p class="sub">Open to collaboration, freelance work, and full-time roles in AI/ML and full-stack engineering. The fastest way to reach me is email.</p>
     <div class="contact-links">
-      <a href="mailto:ayemenbaig26@gmail.com" class="btn btn-primary">ayemenbaig26@gmail.com</a>
-      <a href="https://www.linkedin.com/in/aymen016" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="mailto:ayemenbaig26@gmail.com" class="btn btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+        Email me
+      </a>
+      <a href="https://www.linkedin.com/in/aymen-baig-700a06284/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
       <a href="https://github.com/Aymen016" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
     </div>
+    <div class="contact-email mono">ayemenbaig26@gmail.com</div>
   </div>
 </section>
 
@@ -506,7 +510,7 @@
     <div>© <span id="yr"></span> Aymen Baig — Built with care.</div>
     <div style="display:flex;gap:22px;">
       <a href="https://github.com/Aymen016" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/aymen016" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/aymen-baig-700a06284/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.hackerrank.com/profile/aymen_b" target="_blank" rel="noopener">HackerRank</a>
     </div>
   </div>
@@ -534,12 +538,13 @@
   if (!reduce && matchMedia('(pointer:fine)').matches){
     document.querySelectorAll('.card3d').forEach(card => {
       const el = card.querySelector('.proj');
+      if (el.classList.contains('feature')) return; // wide card: no tilt, it distorts
       card.addEventListener('mousemove', (ev) => {
         const r = card.getBoundingClientRect();
         const px = (ev.clientX - r.left) / r.width;
         const py = (ev.clientY - r.top) / r.height;
-        const rx = (0.5 - py) * 10;
-        const ry = (px - 0.5) * 12;
+        const rx = (0.5 - py) * 5;
+        const ry = (px - 0.5) * 6;
         el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
         el.style.setProperty('--mx', (px*100)+'%');
         el.style.setProperty('--my', (py*100)+'%');
