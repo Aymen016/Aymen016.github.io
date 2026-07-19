@@ -263,17 +263,9 @@
   .chip:hover{border-color:var(--accent);color:var(--accent);}
 
   /* PROJECTS */
-  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
-  .filter-btn{
-    font-family:var(--mono);font-size:12px;letter-spacing:.02em;
-    border:1px solid var(--line-strong);border-radius:100px;padding:8px 16px;
-    background:var(--surface);color:var(--ink-soft);cursor:pointer;transition:all .2s;
-  }
-  .filter-btn:hover{border-color:var(--accent);color:var(--accent);}
-  .filter-btn.active{background:var(--accent);border-color:var(--accent);color:var(--surface);}
-
   .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-  .card3d{perspective:1000px;}
+  .card3d{perspective:1000px;min-width:0;}
+  .card3d.proj-span2{grid-column:span 2;}
   .proj{
     position:relative;border:1px solid var(--line);border-radius:16px;padding:28px;
     background:var(--surface);
@@ -282,7 +274,6 @@
   }
   .proj:hover{border-color:var(--accent);box-shadow:0 26px 50px -28px rgba(20,20,10,.35);}
   :root[data-theme="dark"] .proj:hover{box-shadow:0 26px 50px -28px rgba(0,0,0,.7);}
-  .proj.is-hidden{display:none;}
   .proj .p-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;transform:translateZ(30px);}
   .proj .p-idx{font-family:var(--mono);font-size:11.5px;color:var(--accent-2);}
   .proj .p-tag{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-soft);background:var(--accent-soft);border-radius:100px;padding:5px 11px;}
@@ -294,7 +285,7 @@
   .proj .p-link{font-family:var(--mono);font-size:12px;color:var(--accent);display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
   .proj .p-link svg{transition:transform .25s;}
   .proj:hover .p-link svg{transform:translate(3px,-3px);}
-  .proj.feature{grid-column:span 2;background:linear-gradient(120deg,var(--surface-2),var(--surface) 65%);}
+  .proj.feature{background:linear-gradient(120deg,var(--surface-2),var(--surface) 65%);}
   .proj.feature h3{font-size:1.8rem;}
   .proj.feature .p-body{max-width:60ch;}
 
@@ -319,7 +310,7 @@
     .hero-grid{grid-template-columns:1fr;gap:36px;}
     .about-grid{grid-template-columns:1fr;gap:32px;}
     .stack-grid,.proj-grid{grid-template-columns:1fr;}
-    .proj.feature{grid-column:span 1;}
+    .card3d.proj-span2{grid-column:span 1;}
     .nav-links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 28px 22px;}
     .nav-links.open{display:flex;}
     .nav-links a{padding:14px 0;border-bottom:1px solid var(--line);width:100%;}
@@ -414,10 +405,10 @@
         <div class="card-box">
           <h4>Currently exploring</h4>
           <ul>
-            <li>Semantic &amp; dimensional data modeling for BI</li>
-            <li>dbt, Snowflake, and Tableau</li>
-            <li>CI/CD pipelines with GitHub Actions</li>
-            <li>Real-time APIs &amp; WebSocket integrations</li>
+            <li>Semantic and dimensional data modeling for BI</li>
+            <li>Modern transformation workflows with dbt, Snowflake, and Tableau</li>
+            <li>CI/CD pipelines using GitHub Actions</li>
+            <li>Real-time APIs and WebSocket-based integrations</li>
           </ul>
         </div>
       </div>
@@ -517,19 +508,12 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Selected work</span>
       <h2>Projects worth a closer look</h2>
-      <p>Real repositories you can open, read, and run — filter by kind or scroll the whole set.</p>
-    </div>
-
-    <div class="filters reveal">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="ai">AI &amp; LLM</button>
-      <button class="filter-btn" data-filter="data">Data Engineering</button>
-      <button class="filter-btn" data-filter="web">Full-Stack</button>
+      <p>Fourteen real repositories, grouped roughly by kind — AI &amp; LLM tooling, data engineering, and full-stack apps — you can open, read, and run.</p>
     </div>
 
     <div class="proj-grid" id="projGrid">
 
-      <div class="card3d reveal" style="grid-column:span 2;" data-cat="web">
+      <div class="card3d reveal proj-span2">
         <a class="proj feature" href="https://github.com/Aymen016/Gesteroic" target="_blank" rel="noopener">
           <div class="p-top">
             <span class="p-idx">◆ Flagship</span>
@@ -546,7 +530,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="ai">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/Voice-Note-Summarizer" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">◆ Featured</span><span class="p-tag">AI / Speech</span></div>
           <h3>Voice Note Summarizer</h3>
@@ -555,7 +539,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="data">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/job-market-intelligence" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">◆ Featured</span><span class="p-tag">Data Engineering</span></div>
           <h3>Job Market Intelligence</h3>
@@ -564,7 +548,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="data">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/Uber-Analytics-Dashboard" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">◆ Featured</span><span class="p-tag">Data / BI</span></div>
           <h3>Uber Analytics Dashboard</h3>
@@ -573,7 +557,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="data">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/payments-analytics" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">01</span><span class="p-tag">Data / ML</span></div>
           <h3>Payments Intelligence</h3>
@@ -582,7 +566,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="ai">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/fincopilot" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">02</span><span class="p-tag">AI / Full-Stack</span></div>
           <h3>FinCopilot</h3>
@@ -591,7 +575,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="ai">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/llm-data-quality-checker" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">03</span><span class="p-tag">AI / Data Quality</span></div>
           <h3>LLM Data Quality Checker</h3>
@@ -600,7 +584,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="ai">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/Medical-Chatbot" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">04</span><span class="p-tag">AI / NLP</span></div>
           <h3>Medical Chatbot</h3>
@@ -609,7 +593,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="data">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/Booking-Trends-Dashboard" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">05</span><span class="p-tag">Data / BI</span></div>
           <h3>Booking Trends Dashboard</h3>
@@ -618,7 +602,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="ai">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/Emotion-Recognition-Using-Face-Detection" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">06</span><span class="p-tag">Computer Vision</span></div>
           <h3>Emotion Recognition</h3>
@@ -627,7 +611,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="ai">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/Film-recommendation-engine" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">07</span><span class="p-tag">Machine Learning</span></div>
           <h3>Film Recommendation Engine</h3>
@@ -636,7 +620,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="web">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/MiniSocial" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">08</span><span class="p-tag">Full-Stack</span></div>
           <h3>MiniSocial</h3>
@@ -645,7 +629,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="web">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/Online-Food-Ordering-System" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">09</span><span class="p-tag">Full-Stack</span></div>
           <h3>Online Food Ordering</h3>
@@ -654,7 +638,7 @@
         </a>
       </div>
 
-      <div class="card3d reveal" data-cat="web">
+      <div class="card3d reveal">
         <a class="proj" href="https://github.com/Aymen016/Certificate-Generator" target="_blank" rel="noopener">
           <div class="p-top"><span class="p-idx">10</span><span class="p-tag">Automation</span></div>
           <h3>Certificate Generator</h3>
@@ -721,21 +705,6 @@
     entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  /* project filters */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('#projGrid > .card3d');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      cards.forEach(c => {
-        const show = f === 'all' || c.dataset.cat === f;
-        c.classList.toggle('is-hidden', !show);
-      });
-    });
-  });
 
   /* 3D tilt cards */
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
