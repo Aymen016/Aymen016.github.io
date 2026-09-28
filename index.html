@@ -126,6 +126,14 @@ section.block{padding:64px 0; border-top:1px solid var(--line)}
 .two h3{font-size:1.2rem; font-weight:700; margin-bottom:6px}
 .two p{margin:0 0 12px; max-width:60ch}
 .contact-big{font:800 clamp(1.4rem,3.5vw,2.2rem) var(--display); letter-spacing:-.02em; word-break:break-word}
+.courses{list-style:none; margin:0 0 12px; padding:0; max-width:60ch; border-top:1px solid var(--line)}
+.courses li{display:flex; justify-content:space-between; gap:16px; padding:7px 0; border-bottom:1px solid var(--line); font:500 .95rem var(--display)}
+.cdate{color:var(--muted); white-space:nowrap}
+@media (max-width:480px){ .courses li{flex-direction:column; gap:0} }
+.points{margin:0 0 12px; padding-left:1.1em; max-width:68ch}
+.points li{margin-bottom:6px}
+.plist li.award{grid-template-columns:1fr auto}
+@media (max-width:900px){ .plist li.award{grid-template-columns:1fr} }
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .sub-h{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;letter-spacing:-.03em;margin-bottom:24px}
 footer{padding:28px 0 40px; color:var(--muted); font-size:.9rem; border-top:1px solid var(--line)}
@@ -145,53 +153,91 @@ const html = htm.bind(React.createElement);
 const PROFILE = {
   name: "Aymen Baig",
   lede: "I build AI tools that search and act on messy data, and the pipelines that keep that data correct.",
-  meta: "Software Engineer at i2c Inc, Lahore. Data Science graduate, PUCIT. Open to freelance and contract work.",
+  meta: "Software Engineer at i2c, a global fintech platform, in Lahore. BSc Data Science, PUCIT. Open to freelance and contract work.",
   email: "ayemenbaig26@gmail.com",
   github: "https://github.com/Aymen016",
-  linkedin: "https://www.linkedin.com/in/aymen016",
-  hackerrank: "https://www.hackerrank.com/profile/aymen_b"
+  linkedin: "https://www.linkedin.com/in/aymen-baig",
+  hackerrank: "https://www.hackerrank.com/profile/aymen_b",
+  devpost: "https://devpost.com/ayemenbaig26"
 };
 
 const WORK = [
   {
     id: "i2c", section: "Work",
-    name: "i2c Inc", role: "Software Engineer (Associate Software Engineer from Jul 2025)",
-    when: "Jul 2025 to present",
-    summary: "Build a change-data-capture reconciliation system in Apache Airflow covering about 175 Informix databases and their Greenplum counterparts, around 205 tables each. Scheduled DAGs run user-defined SQL metrics per table, reconcile the results and store them. A separate DAG raises alerts when a metric crosses its threshold.",
-    tags: ["Apache Airflow", "Python", "SQL", "Informix", "Greenplum"],
-    keywords: "cdc data engineering pipeline etl reconciliation alerting production databases scheduling monitoring"
+    name: "i2c Inc", role: "Software Engineer",
+    when: "Jan 2026 to present",
+    points: [
+      "Build and maintain production ETL pipelines in Apache Airflow that reconcile data across 196 enterprise databases, keeping financial data accurate at scale.",
+      "Developed automated validation and monitoring that flags data discrepancies and triggers alerts for quick resolution.",
+      "Write and optimize SQL queries that compare and reconcile large datasets across database systems."
+    ],
+    tags: ["Apache Airflow", "Python", "SQL", "ETL"],
+    keywords: "data engineering pipeline etl reconciliation alerting monitoring validation production fintech databases"
+  },
+  {
+    id: "i2c-assoc", section: "Work",
+    name: "i2c Inc", role: "Associate Software Engineer",
+    when: "Jul 2025 to Dec 2025",
+    points: [
+      "Resolved production defects in enterprise billing modules, improving the stability and performance of core payment systems.",
+      "Developed and tuned SQL queries across Greenplum and Informix to support issue investigation and data verification.",
+      "Contributed to ETL development and workflow automation in Apache Airflow, leading to promotion to Software Engineer."
+    ],
+    tags: ["SQL", "Greenplum", "Informix", "Apache Airflow"],
+    keywords: "billing payments fintech debugging production defects sql databases"
+  },
+  {
+    id: "fiverr", section: "Work",
+    name: "Fiverr", role: "Freelance Web Developer",
+    when: "May 2024 to May 2025",
+    points: [
+      "Built and delivered an end-to-end web dashboard for a client, handling frontend and backend and managing requirements directly with the client."
+    ],
+    tags: ["Full-stack", "Client work"],
+    keywords: "freelance web dashboard frontend backend full-stack client"
   },
   {
     id: "ta", section: "Work",
-    name: "PUCIT, University of the Punjab", role: "Teaching Assistant, Probability and Statistics",
-    when: "During BSc",
-    summary: "Supported students through Probability and Statistics, a course I took with A+ grades in both the core and advanced versions.",
-    tags: ["Statistics", "Teaching"],
-    keywords: "probability statistics teaching mentoring"
+    name: "PUCIT, University of the Punjab", role: "Teaching Assistant",
+    when: "Sep 2024 to Jun 2025",
+    points: [
+      "Assisted faculty in teaching and assessing undergraduate courses."
+    ],
+    courses: [
+      ["Introduction to Data Science", "Jan 2025 to Jun 2025"],
+      ["Computer Vision", "Feb 2025 to Jun 2025"],
+      ["Information Security", "Jan 2025 to Jun 2025"],
+      ["Operating Systems", "Sep 2024 to Jan 2025"]
+    ],
+    tags: ["Teaching", "Data Science", "OpenCV", "Linux"],
+    keywords: "teaching mentoring data science computer vision opencv information security operating systems linux"
   },
   {
     id: "research", section: "Work",
-    name: "Research study", role: "Pair programming and computational skills",
+    name: "Research", role: "Impact of pair programming on computational skill development",
     when: "Undergraduate",
-    summary: "Designed and ran a survey study with more than 1,000 responses and analysed the effect of pair programming with ANOVA. Unpublished.",
-    tags: ["Survey design", "ANOVA", "Python"],
-    keywords: "statistics research anova survey analysis hypothesis testing"
+    points: [
+      "Designed and ran a survey-based study on how pair programming shapes computational skills, collecting more than 1,000 responses.",
+      "Used statistical analysis and data visualization to evaluate the link between collaborative programming and skill growth."
+    ],
+    tags: ["Survey design", "Statistics", "Data visualization"],
+    keywords: "statistics research survey analysis visualization"
   }
-];
+].map(w => ({ ...w, summary: w.points.join(" ") }));
 
 const PROJECTS = [
-  { id: "rag", area: "AI", featured: true, status: "In progress",
-    name: "RAG over messy technical docs",
-    summary: "A chat interface for questions over mixed PDFs, markdown and wikis. Every answer cites its sources, and a custom evaluation suite measures retrieval and answer accuracy.",
-    stack: ["Python", "Embeddings", "Vector search", "Evals"],
-    link: "https://github.com/Aymen016",
+  { id: "rag", area: "AI", featured: true,
+    name: "RAG Document Search System",
+    summary: "A retrieval-augmented chat system for messy, multi-format technical docs (PDF, Markdown, HTML, CSV, JSONL) with a source citation on every answer. Structure-aware chunking keeps code blocks and tables intact, and a custom evaluation suite measures retrieval and answer accuracy.",
+    stack: ["Python", "LLMs", "Groq", "Vector search", "FastAPI", "React"],
+    link: "https://github.com/Aymen016/Rag-Document-Search-System",
     keywords: "rag llm retrieval citations evaluation documents pdf semantic search chatbot" },
   { id: "voice", area: "AI", featured: true,
     name: "Voice Note Summarizer",
-    summary: "Turns voice notes into summaries and action items, including Urdu-English code-switched speech. Has a live Streamlit demo.",
-    stack: ["Python", "Speech-to-text", "LLM", "Streamlit"],
+    summary: "Turns long voice notes into summaries, key points and action items, with automatic language detection for Urdu-English code-switched speech. Local transcription plus LLM summarization and tone detection, available as a CLI and a Streamlit app.",
+    stack: ["Python", "faster-whisper", "Groq", "Streamlit"],
     link: "https://github.com/Aymen016/Voice-Note-Summarizer",
-    keywords: "audio speech transcription urdu english multilingual summarization llm" },
+    keywords: "audio speech transcription whisper urdu english multilingual summarization llm tone" },
   { id: "election", area: "Data", featured: true,
     name: "Real-time election vote processing",
     summary: "A streaming architecture that ingests votes through Kafka, processes them with Spark and serves live results to Streamlit and Superset dashboards.",
@@ -249,15 +295,27 @@ const PROJECTS = [
 ];
 
 const SKILLS = [
-  ["AI and LLM apps", "RAG, embeddings, vector search (Pinecone), evaluation, OpenAI API, NLP"],
-  ["Data engineering", "Apache Airflow, Kafka, Spark, CDC and reconciliation, SQL"],
-  ["Machine learning", "scikit-learn, TensorFlow, OpenCV, recommender systems"],
-  ["Analysis", "Pandas, NumPy, SciPy, Power BI, statistical testing"],
-  ["Backend and web", "Python, Flask, FastAPI, JavaScript, React, PHP, Java"],
-  ["Databases and tools", "PostgreSQL, MySQL, SQL Server, MongoDB, Elasticsearch, Docker, Git"]
+  ["Languages", "Python, R, SQL, JavaScript, HTML/CSS"],
+  ["AI and machine learning", "Machine learning, deep learning, NLP, computer vision, LLMs, RAG, TensorFlow, scikit-learn"],
+  ["Data and analytics", "Pandas, NumPy, statistics, data visualization, Power BI, big data analytics, data warehousing"],
+  ["Data engineering and databases", "Apache Airflow, ETL pipelines, Greenplum, Informix, MongoDB"],
+  ["Frameworks and tools", "FastAPI, Flask, Streamlit, Git"]
 ];
 
-const SUGGESTIONS = ["streaming data", "LLMs and RAG", "dashboards", "computer vision", "Urdu speech", "Airflow"];
+const ACHIEVEMENTS = [
+  { id: "ach-nutec", name: "1st place, Build with AI Hackathon", detail: "NUTEC 2025" },
+  { id: "ach-decthon", name: "1st place, Full-Stack Development Quiz", detail: "DECTHON 2025" },
+  { id: "ach-codebees", name: "Winner, Code Bees 1.0 Competition", detail: "PUCIT" }
+];
+
+const CERTS = [
+  { id: "c-anthropic", name: "AI Fluency for Builders", detail: "Anthropic, 2026" },
+  { id: "c-langchain", name: "LangChain for LLM Application Development", detail: "DeepLearning.AI" },
+  { id: "c-prompt", name: "ChatGPT Prompt Engineering for Developers", detail: "DeepLearning.AI" },
+  { id: "c-ibm", name: "IBM Data Analytics with Excel and R Professional Certificate", detail: "Coursera" }
+];
+
+const SUGGESTIONS = ["streaming data", "LLMs and RAG", "dashboards", "computer vision", "hackathon wins", "Airflow"];
 
 /* ---------- Tiny retrieval engine ---------- */
 const STOP = new Set("a an and are as at be by can do does for from has have how i in is it me my of on or so that the this to was what with you your worked work any ever done".split(" "));
@@ -279,7 +337,7 @@ const tok = s => s.toLowerCase().replace(/[^a-z0-9\- ]+/g," ").split(/\s+/)
 function buildIndex(docs){
   const df = {};
   const vecs = docs.map(d => {
-    const words = tok([d.name, d.role || "", d.summary, (d.stack || d.tags || []).join(" "), d.keywords].join(" "));
+    const words = tok([d.name, d.role || "", d.summary, (d.courses || []).map(c => c[0]).join(" "), (d.stack || d.tags || []).join(" "), d.keywords].join(" "));
     const tf = {};
     words.forEach(w => tf[w] = (tf[w] || 0) + 1);
     Object.keys(tf).forEach(w => df[w] = (df[w] || 0) + 1);
@@ -316,7 +374,12 @@ function jumpTo(id){
 
 /* ---------- Components ---------- */
 function Ask({ onJump }){
-  const docs = useMemo(() => [...PROJECTS.map(p => ({ ...p, section: "Projects" })), ...WORK], []);
+  const docs = useMemo(() => [
+    ...PROJECTS.map(p => ({ ...p, section: "Projects" })),
+    ...WORK,
+    ...ACHIEVEMENTS.map(x => ({ ...x, section: "Achievements", summary: x.name + ", " + x.detail + ".", keywords: "hackathon competition win award" })),
+    ...CERTS.map(x => ({ ...x, section: "Certifications", summary: x.name + ", " + x.detail + ".", keywords: "certificate course" }))
+  ], []);
   const search = useMemo(() => buildIndex(docs), [docs]);
   const [q, setQ] = useState("");
   const [asked, setAsked] = useState("");
@@ -339,7 +402,7 @@ function Ask({ onJump }){
           ${results.map(r => html`
             <li class="result" key=${r.doc.id}>
               <h3>${r.doc.name}</h3>
-              <p>${highlight(r.doc.summary, r.hits)}</p>
+              <p>${highlight(r.doc.summary.length > 240 ? r.doc.summary.slice(0, 237) + "..." : r.doc.summary, r.hits)}</p>
               <span class="src">Source: ${r.doc.section} </span>
               <button onClick=${() => onJump(r.doc.id)}>Show in page</button>
             </li>`)}
@@ -417,6 +480,7 @@ function App(){
             <a class="btn primary" href=${"mailto:" + PROFILE.email}>Email me</a>
             <a class="btn" href=${PROFILE.github} target="_blank" rel="noopener">GitHub</a>
             <a class="btn" href=${PROFILE.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href=${PROFILE.devpost} target="_blank" rel="noopener">Devpost</a>
           </div>
         </div>
         <${Ask} onJump=${jumpTo} />
@@ -431,7 +495,8 @@ function App(){
               <div>
                 <h3>${w.name}</h3>
                 <p class="role">${w.role}</p>
-                <p>${w.summary}</p>
+                <ul class="points">${w.points.map(t => html`<li key=${t}>${t}</li>`)}</ul>
+                ${w.courses && html`<ul class="courses">${w.courses.map(([c, d]) => html`<li key=${c}><span>${c}</span>${d && html`<span class="cdate">${d}</span>`}</li>`)}</ul>`}
                 <div class="tags">${w.tags.join(", ")}</div>
               </div>
             </article>`)}
@@ -447,17 +512,34 @@ function App(){
         </dl>
       </div></section>
 
+      <section class="block" id="certs"><div class="wrap two">
+        <div>
+          <h2 class="sub-h">Achievements</h2>
+          <ul class="plist">
+            ${ACHIEVEMENTS.map(x => html`<li class="award" id=${x.id} key=${x.id}><h3>${x.name}</h3><div class="stack">${x.detail}</div></li>`)}
+          </ul>
+        </div>
+        <div>
+          <h2 class="sub-h">Certifications</h2>
+          <ul class="plist">
+            ${CERTS.map(x => html`<li class="award" id=${x.id} key=${x.id}><h3>${x.name}</h3><div class="stack">${x.detail}</div></li>`)}
+          </ul>
+        </div>
+      </div></section>
+
       <section class="block" id="contact"><div class="wrap two">
         <div>
           <h2 class="sub-h">Education</h2>
           <h3>BSc Data Science</h3>
-          <p>PUCIT, University of the Punjab, 2021 to 2025. A+ in Probability and Statistics and in Advanced Probability and Statistics.</p>
+          <p>PUCIT, University of the Punjab, Nov 2021 to Jun 2025. CGPA 3.74/4.0.</p>
+          <h3>Intermediate, Pre-Engineering</h3>
+          <p>Unique Group of Institutions, Jul 2019 to Jul 2021. 1083/1100 (98.5%).</p>
         </div>
         <div>
           <h2 class="sub-h">Contact</h2>
           <p>Have messy data and a question you want answered from it? Write to me.</p>
           <p><a class="contact-big" href=${"mailto:" + PROFILE.email}>${PROFILE.email}</a></p>
-          <p><a href=${PROFILE.github} target="_blank" rel="noopener">GitHub</a>, <a href=${PROFILE.linkedin} target="_blank" rel="noopener">LinkedIn</a>, <a href=${PROFILE.hackerrank} target="_blank" rel="noopener">HackerRank</a></p>
+          <p><a href=${PROFILE.github} target="_blank" rel="noopener">GitHub</a>, <a href=${PROFILE.linkedin} target="_blank" rel="noopener">LinkedIn</a>, <a href=${PROFILE.hackerrank} target="_blank" rel="noopener">HackerRank</a>, <a href=${PROFILE.devpost} target="_blank" rel="noopener">Devpost</a></p>
         </div>
       </div></section>
     </main>
